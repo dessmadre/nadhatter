@@ -8,7 +8,7 @@ module.exports = {
         source: '/products',
         headers: [
           {
-            key: 'x-decompressed-content-length',
+            key: 'Content-Length',
             value: 'Content Length helpes with progress events',
           },
         ],
