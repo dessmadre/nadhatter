@@ -4,6 +4,7 @@ export default function Home() {
   return (
     <div className='w-screen h-screen flex flex-col justify-center items-center'>
       <Meta title='NAD Hats | Home' />
+
       <svg
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 125.5 123.5'
@@ -13,17 +14,17 @@ export default function Home() {
         <g id='Layer_2' data-name='Layer 2'>
           <g id='Hat'>
             <path
-              class='cls-1'
+              className='cls-1'
               d='M8.6,91.16S6.43,2.75,63.14,2.75c57.08,0,54,88.41,54,88.41'
               strokeWidth='5.5px'
             />
             <path
-              class='cls-1'
+              className='cls-1'
               d='M10.08,91.16H115.42c4,0,7.33,3.84,7.33,8.59v12.42c0,4.74-3.28,8.58-7.33,8.58H10.08c-4,0-7.33-3.84-7.33-8.58V99.75C2.75,95,6,91.16,10.08,91.16Z'
               strokeWidth='5.5px'
             />
             <line
-              class='cls-2'
+              className='cls-2'
               x1='52.82'
               y1='3.54'
               x2='42.45'
@@ -31,7 +32,7 @@ export default function Home() {
               strokeWidth='3px'
             />
             <line
-              class='cls-2'
+              className='cls-2'
               x1='69.82'
               y1='2.75'
               x2='83.52'

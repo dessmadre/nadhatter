@@ -19,3 +19,5 @@ export const fetcher = (url) => {
     })
     .then((res) => res.data.data);
 };
+
+export default fetcher;

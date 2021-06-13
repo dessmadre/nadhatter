@@ -1,10 +1,9 @@
 import useSWR from 'swr';
 import { useState } from 'react';
+import axios from 'axios';
 
 import Meta from 'components/Meta';
-import fetcher from 'utils/fetcher';
 import ProductsList from 'components/ProductList';
-import axios from 'axios';
 
 export default function ProductsPage() {
   const [progress, emitProgress] = useState(null);
@@ -15,6 +14,11 @@ export default function ProductsPage() {
         method: 'GET',
         url,
         onDownloadProgress: (progressEvent) => {
+          console.log('Progress Event: ', progressEvent);
+          console.log(
+            'Progress',
+            (progressEvent.loaded * 100) / progressEvent.total
+          );
           const percentCompleted = Math.round(
             (progressEvent.loaded * 100) / progressEvent.total
           );
