@@ -1,9 +1,7 @@
-import axios from 'axios';
+import useSWR from 'swr';
 import { useState } from 'react';
 
-// fetcher function for swr
-
-export const fetcher = (url) => {
+const fetcher = (url) => {
   const [progress, emitProgress] = useState(0);
 
   return axios
@@ -19,3 +17,7 @@ export const fetcher = (url) => {
     })
     .then((res) => res.data.data);
 };
+
+export default function useSWRWithDownloadProgress(url) {
+  useSWR(url, fetcher);
+}
