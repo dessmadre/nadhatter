@@ -5,8 +5,6 @@ import commerce from 'lib/commercejs';
 export default function ProductPage(product) {
   const p = product.product;
 
-  console.log(p);
-
   return (
     <>
       {product ? (

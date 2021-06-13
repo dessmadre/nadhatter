@@ -14,6 +14,7 @@ export default function ProductsPage() {
         method: 'GET',
         url,
         onDownloadProgress: (progressEvent) => {
+          progressEvent.srcElement.getResponseHeader('content-length');
           console.log('Progress Event: ', progressEvent);
           console.log(
             'Progress',
