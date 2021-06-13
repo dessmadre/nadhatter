@@ -8,7 +8,7 @@ module.exports = {
         source: '/products',
         headers: [
           {
-            key: 'x-Content-Length',
+            key: 'Content-Length',
             value: '10000000',
           },
         ],
