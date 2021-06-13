@@ -9,7 +9,7 @@ module.exports = {
         headers: [
           {
             key: 'x-Content-Length',
-            value: 'Content Length helpes with progress events',
+            value: '10000000',
           },
         ],
       },
