@@ -12,6 +12,7 @@ export default function ProductsPage() {
   const { data: products } = useSWR('/api/products', (url) => {
     return axios
       .get(url, {
+        headers: { 'Access-Control-Allow-Headers': 'content-length' },
         onDownloadProgress: (e) => {
           emitProgress((e.loaded * 100) / e.total);
           console.log(e);
