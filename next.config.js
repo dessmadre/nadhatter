@@ -5,11 +5,12 @@ module.exports = {
   async headers() {
     return [
       {
-        source: '/products',
+        source: '/api/:path*',
         headers: [
           {
-            key: 'Content-Length',
-            value: '10000000',
+            key: 'Access-Control-Allow-Headers',
+            value:
+              'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
           },
         ],
       },
