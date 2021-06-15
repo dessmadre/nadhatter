@@ -1,55 +1,21 @@
 import useSWR from 'swr';
 import { useState } from 'react';
-import axios from 'axios';
+import Link from 'next/link';
 
 import Meta from 'components/Meta';
 import ProductsList from 'components/ProductList';
 import Loader from 'components/Loader';
+import fetcher from 'utils/fetcher';
 
 export default function ProductsPage() {
-  const [progress, emitProgress] = useState(0);
-
-  const { data: products } = useSWR('/api/products', (url) => {
-    return axios
-      .get(url, {
-        headers: { 'Access-Control-Allow-Headers': 'content-length' },
-        onDownloadProgress: (e) => {
-          emitProgress((e.loaded * 100) / e.total);
-          console.log(e);
-          console.log(e.loaded);
-        },
-      })
-      .then((res) => {
-        console.log(res.headers);
-        console.log(progress);
-        return res.data.data;
-      });
-  });
-  //   axios
-  //     .request({
-  //       method: 'GET',
-  //       url,
-  //       onDownloadProgress: (progressEvent) => {
-  //         progressEvent.srcElement.getResponseHeader('content-length');
-  //         console.log('Progress Event: ', progressEvent);
-  //         console.log(
-  //           'Progress',
-  //           (progressEvent.loaded * 100) / progressEvent.total
-  //         );
-  //         const percentCompleted = Math.round(
-  //           (progressEvent.loaded * 100) / progressEvent.total
-  //         );
-  //         emitProgress(percentCompleted);
-  //       },
-  //     })
-  //     .then((res) => {
-  //       return res.data.data;
-  //     })
-  // );
+  const { data: products } = useSWR('/api/products', fetcher);
 
   return (
     <>
       <Meta title='NAD Hats | Shop' />
+      <Link href='/'>
+        <a className='text-3xl font-thin uppercase'>Home</a>
+      </Link>
       {/* <Loader progress={emitProgress} /> */}
       <h1 className='text-7xl font-bold lowercase'>Products</h1>
       {products ? <ProductsList products={products} /> : <p>Loading...</p>}

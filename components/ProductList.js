@@ -15,7 +15,11 @@ export default function ProductList({ products }) {
         <li key={product.permalink}>
           <Link href={`/products/${product.permalink}`}>
             <a>
-              <Product {...product} />
+              <Product
+                img={product.media.source}
+                name={product.name}
+                price={product.price.formatted_with_symbol}
+              />
             </a>
           </Link>
         </li>

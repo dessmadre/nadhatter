@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 
 import commerce from 'lib/commercejs';
@@ -7,6 +8,9 @@ export default function ProductPage(product) {
 
   return (
     <>
+      <Link href='/products'>
+        <a className='text-3xl font-thin uppercase'>&larr; Back</a>
+      </Link>
       {product ? (
         <div>
           {/* There is a current issue with node 16 which causes the project 
@@ -14,8 +18,10 @@ export default function ProductPage(product) {
               Only seems to be a problem in development and not in production */}
           {/* <Image src={p.media.source} width={1280} height={720} /> */}
           <img src={p.media.source} />
-          <h1>{p.name}</h1>
-          <p>{p.price?.formatted_with_symbol} </p>
+          <p className='text-6xl font-semibold lowercase'>{p.name}</p>
+          <p className='text-4xl font-semibold'>
+            {p.price?.formatted_with_symbol}{' '}
+          </p>
         </div>
       ) : (
         <p>Loading...</p>

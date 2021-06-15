@@ -1,23 +1,21 @@
-import axios from 'axios';
 import { useState } from 'react';
+import axios from 'axios';
 
 // fetcher function for swr
 
 export const fetcher = (url) => {
-  const [progress, emitProgress] = useState(0);
-
   return axios
-    .request({
-      method: 'GET',
-      url,
+    .get(url, {
+      headers: {
+        'Access-Control-Allow-Headers': 'Content-Length',
+      },
       onDownloadProgress: (progressEvent) => {
-        const percentCompleted = Math.round(
-          (progressEvent.loaded * 100) / progressEvent.total
-        );
-        emitProgress(percentCompleted);
+        console.log(progressEvent);
       },
     })
-    .then((res) => res.data.data);
+    .then((res) => {
+      return res.data.data;
+    });
 };
 
 export default fetcher;
