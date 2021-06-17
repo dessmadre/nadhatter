@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Meta from 'components/Meta';
 import Image from 'next/image';
 
 import commerce from 'lib/commercejs';
@@ -8,6 +9,7 @@ export default function ProductPage(product) {
 
   return (
     <>
+      <Meta title={p.name} />
       <Link href='/products'>
         <a className='text-3xl font-thin uppercase'>&larr; Back</a>
       </Link>
@@ -16,7 +18,7 @@ export default function ProductPage(product) {
           {/* There is a current issue with node 16 which causes the project 
               to crash when trying to load an image with next-image using Apple M1 chip.
               Only seems to be a problem in development and not in production */}
-          {/* <Image src={p.media.source} width={1280} height={720} /> */}
+          <Image src={p.media.source} width={1280} height={720} />
           <img src={p.media.source} />
           <p className='text-6xl font-semibold lowercase'>{p.name}</p>
           <p className='text-4xl font-semibold'>

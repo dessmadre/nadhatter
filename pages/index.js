@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <div className='w-screen h-screen flex flex-col justify-center items-center'>
-      <Meta title='NAD Hats | Home' />
+      <Meta title='Home' />
       <button
         className='bg-gray'
         aria-label='Toggle Dark Mode'

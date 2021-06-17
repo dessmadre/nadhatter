@@ -3,7 +3,7 @@ import Head from 'next/head';
 export default function Meta({ title }) {
   return (
     <Head>
-      <title>{title}</title>
+      <title>NAD Hats | {title}</title>
       <link
         rel='apple-touch-icon'
         sizes='180x180'

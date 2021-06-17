@@ -10,7 +10,7 @@ export default function ProductList({ products }) {
   const p = () => {};
 
   return (
-    <ul>
+    <div>
       {products.map((product) => (
         <li key={product.permalink}>
           <Link href={`/products/${product.permalink}`}>
@@ -24,6 +24,6 @@ export default function ProductList({ products }) {
           </Link>
         </li>
       ))}
-    </ul>
+    </div>
   );
 }
